@@ -1,0 +1,19 @@
+{
+    "name" : "Bus ticket",
+    "Ticket number" : "something",
+    "resources" : [
+        {
+            "name" : "Passenger data",
+            "Full name" : "string",
+            "Seat" : "something",
+            "Luggage" : "string"
+        },
+        {
+            "name" : "Route data",
+            "From" : "string",
+            "To" : "string",
+            "Departure time" : "something",
+            "Arrival time" : "something"
+        }
+    ]
+}

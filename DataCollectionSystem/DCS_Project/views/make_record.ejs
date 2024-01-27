@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../constructor.css" rel="stylesheet" type="text/css">
+        <title>Форма для заполнения</title>
+    </head>
+    <body>
+        <form action="/fill" method="post">
+            <fieldset class="main_area">
+                <% for(let [key, value] of Object.entries(form)) { %>
+                    <% if(key == 'name') { %>
+                        <legend><%= value %></legend>
+                    <% } else if(key == 'resources') { %>
+                        <% for(let [key_i, value_i] of Object.entries(value)) { %>
+                            <% if(typeof value_i === 'object') { %>
+                                <fieldset class="fragments">
+                                    <% for(let [key_ii, value_ii] of Object.entries(value_i)) { %>
+                                        <% if(key_ii == 'name') { %>
+                                            <legend><%= value_ii %></legend>
+                                        <% } else { %>
+                                            <label for="<%= key_ii %>"><%= key_ii %> : </label>
+                                            <% if(value_ii === 'string') { %>
+                                                <input type="text" pattern="[А-Яа-яA-Za-zЁё ]*" id="<%= key_ii %>" name="<%= key_ii %>">
+                                            <% } else if(value_ii == 'number') { %>
+                                                <input type="number" puttern="\d*" id="<%= key_ii %>" name="<%= key_ii %>">
+                                            <% } else { %>
+                                                <input type="text" pattern="[А-Яа-яA-Za-z0-9Ёё:]*" id="<%= key_ii %>" name="<%= key_ii %>">
+                                            <% } %>
+                                            <br><br>
+                                        <% } %>
+                                    <% } %>
+                                </fieldset>
+                                <br><br>
+                            <% } else { %>
+                                <label for="<%= key_i %>"><%= key_i %> : </label>
+                                <% if(value_i === 'string') { %>
+                                    <input type="text" pattern="[А-Яа-яA-Za-zЁё ]*" id="<%= key_i %>" name="<%= key_i %>">
+                                <% } else if(value_i == 'number') { %>
+                                    <input type="number" pattern="\d*" id="<%= key_i %>" name="<%= key_i %>">
+                                <% } else { %>
+                                    <input type="text" pattern="[А-Яа-яA-Za-z0-9Ёё:]*" id="<%= key_i %>" name="<%= key_i %>">
+                                <% } %>
+                                <br><br>
+                            <% } %>
+                        <% } %>
+                    <% } else { %>
+                        <label for="<%= key %>"><%= key %> : </label>
+                        <% if(value === 'string') { %>
+                            <input type="text" pattern="[А-Яа-яA-Za-zЁё ]*" id="<%= key %>" name="<%= key %>">
+                        <% } else if(value == 'number') { %>
+                            <input type="number" pattern="\d*" id="<%= key %>" name="<%= key %>">
+                        <% } else { %>
+                            <input type="text" pattern="[А-Яа-яA-Za-z0-9Ёё:]*" id="<%= key %>" name="<%= key %>">
+                        <% } %>
+                        <br><br>
+                    <% } %>
+                <% } %>
+                <button type="submit">Make record</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

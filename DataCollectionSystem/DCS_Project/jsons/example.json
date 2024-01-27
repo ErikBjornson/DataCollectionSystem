@@ -1,0 +1,19 @@
+{
+    "name" : "Meters readings",
+    "Apartment number" : "something",
+    "resources" : [
+        {
+            "name" : "Water",
+            "Meter readings" : "number"
+        },
+        {
+            "name" : "Electricity",
+            "Daily rate" : "number",
+            "Nightly rate" : "number"
+        },
+        {
+            "name" : "Gas",
+            "Meter readings" : "number"
+        }
+    ]
+}

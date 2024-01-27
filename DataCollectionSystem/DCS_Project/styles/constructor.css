@@ -1,0 +1,23 @@
+body{
+    background-color: white;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.main_area {
+    border-radius: 30px;
+    text-align: center;
+    margin: 0 auto;
+    justify-items: center;
+    display: inline-block;
+  }
+
+.fragments {
+    border-radius: 30px;
+    display: inline-block;
+}
+
+legend {
+    color: black;
+}
