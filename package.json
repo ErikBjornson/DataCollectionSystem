@@ -10,7 +10,7 @@
     "tech2",
     "intertech2"
   ],
-  "author": "Chuvashov Andrey",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
